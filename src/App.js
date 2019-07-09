@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
+import history from './history'
 
 // css
 import './App.css';
@@ -11,7 +12,7 @@ import HomeMain from './components/HomeMain'
 class App extends Component {
   render() {
     return (
-        <Router>
+        <Router history={history}>
           <div className="container">
               <div className="app_version">
                   <span className="web">WebApp ver : MainApp : Ver 0.0.1 LiveServer #React CSS TEST</span>
