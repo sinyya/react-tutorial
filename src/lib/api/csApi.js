@@ -1,3 +1,6 @@
+// history
+import history from '../../history'
+
 // lib
 import $ from 'jquery'
 var x2js = require('x2js')
@@ -113,7 +116,8 @@ App.api.csApi = (function () {
                 // App.api.csApi.requestStartApp($xmlDoc, xmlDoc);
                 console.log($xmlDoc.find("launchInfo historyList history menuId").text())
 
-                // todo router push
+                // go homeMain
+                history.push('/homeMain')
 
                 break;
         }
@@ -628,11 +632,10 @@ App.api.csApi = (function () {
         App.api.csApi.responseStartApp("onLoad");
     };*/
 
-
     return {
         request: request,
         response: response,
-        responseStartApp: responseStartApp,
+        responseStartApp: responseStartApp
     }
 
 })();
