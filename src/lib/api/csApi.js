@@ -7,14 +7,15 @@ var x2js = require('x2js')
 var X2JS = new x2js()
 
 // app css 환경에서 존재함
+// eslint-disable-next-line
 var app = app || undefined;
 
 // csApi.js
-var App = App || {};
+const App = {};
 App.api = App.api || {};
 App.api.csApi = (function () {
 
-    var isStopApp = false;
+    // var isStopApp = false;
 
     // app 객체는 CS 환경에서만 존재하므로 방어코드가 필요함
     if (typeof app != 'undefined') {
@@ -25,6 +26,7 @@ App.api.csApi = (function () {
         });
     }
 
+    // eslint-disable-next-line
     String.prototype.bool = function () {
         return (/^true$/i).test(this);
     };
@@ -109,7 +111,7 @@ App.api.csApi = (function () {
         var $xmlDoc = $(xmlDoc);
 
         var command = $xmlDoc.find("COMMAND").text().toLowerCase();
-        var contents = $xmlDoc.find("CONTENTS").text().toLowerCase();
+        // var contents = $xmlDoc.find("CONTENTS").text().toLowerCase();
 
         switch (command) {
             case 'startapp' :
@@ -119,6 +121,8 @@ App.api.csApi = (function () {
                 // go homeMain
                 history.push('/homeMain')
 
+                break;
+            default :
                 break;
         }
     }
