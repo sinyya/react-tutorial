@@ -1,9 +1,12 @@
 import React from 'react';
 
+/**
+ * default 화면
+ */
 const Home = () => {
     return (
         <div>
-            Home
+
         </div>
     )
 }
