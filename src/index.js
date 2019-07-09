@@ -1,10 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Root from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// lib
+import csApi from './lib/api/csApi'
+
+var App = App || {};
+App.api = App.api || {};
+App.api.csApi = csApi
+
+window.App = App
+window.appVersion = "v0.0.1"
+
+ReactDOM.render(<Root />, document.getElementById('root'));
+
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
