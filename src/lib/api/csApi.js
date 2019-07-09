@@ -632,10 +632,24 @@ App.api.csApi = (function () {
         App.api.csApi.responseStartApp("onLoad");
     };*/
 
+    function stopApp() {
+        var stopApp = {
+            TYPE: "notify",
+            COMMAND: "StopApp",
+            CONTENTS: "Exit",
+            DATA: {}
+        };
+        // var xmlString2 = X2JS.json2xml_str(stopApp);
+        var xmlString2 = X2JS.js2xml(stopApp);
+        xmlString2 = "<INTERFACE version='3'>" + xmlString2 + "</INTERFACE>";
+        App.api.csApi.request(xmlString2);
+    }
+
     return {
         request: request,
         response: response,
-        responseStartApp: responseStartApp
+        responseStartApp: responseStartApp,
+        stopApp: stopApp
     }
 
 })();

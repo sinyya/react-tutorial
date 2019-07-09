@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 // lib
 import csApi from './lib/api/csApi'
 
-var App = App || {};
+const App = {};
 App.api = App.api || {};
 App.api.csApi = csApi
 
