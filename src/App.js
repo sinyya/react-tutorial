@@ -8,6 +8,9 @@ import './App.css';
 // components
 import { Home, HomeMain, Page404} from './routes'
 
+// lib
+import csApi from './lib/api/csApi'
+
 class App extends Component {
   render() {
     return (
@@ -22,6 +25,10 @@ class App extends Component {
         </Router>
     );
   }
+    componentDidMount(){
+        console.log("componentDidMount");
+        csApi.responseStartApp("onLoad");
+    }
 }
 
 export default App;
