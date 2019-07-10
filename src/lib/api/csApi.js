@@ -19,11 +19,15 @@ App.api.csApi = (function () {
 
     // app 객체는 CS 환경에서만 존재하므로 방어코드가 필요함
     if (typeof app != 'undefined') {
+        console.log('app is defined');
+        console.log(app)
         // 응답콜백은 App.에서 로드한 js파일에 선언되어 있어야 함
         app.setMessageCallback('ContainerToApp', function (name, args) {
             // 모든 응답이 이 함수로 들어오기 때문에 별도로 콜백 핸들러를 구현하여 처리하길 권장함
             App.api.csApi.response(args[0]);
         });
+    } else {
+        console.log('app is undefined');
     }
 
     // eslint-disable-next-line
