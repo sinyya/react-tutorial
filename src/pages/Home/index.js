@@ -1,4 +1,5 @@
 import React from 'react';
+import { HeaderVersion} from "../../components";
 
 /**
  * default 화면
@@ -6,7 +7,7 @@ import React from 'react';
 const Home = () => {
     return (
         <div>
-
+            <HeaderVersion/>
         </div>
     )
 }
