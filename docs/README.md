@@ -15,8 +15,7 @@ $ npm install cross-env --dev
 - src/assets : 이미지 등 프로젝트에서 쓰이는 어셋
 - src/components : 컴포넌트
 - src/pages : 페이지
-- src/history : 외부에서 react history에 접근하기 위한 히스토리 모듈
-- src/lib : api 연동 라이브러리
+- src/lib : api 연동 라이브러리, history 등 라이브러리
 - src/utils : 유틸리티
 
 <br/>

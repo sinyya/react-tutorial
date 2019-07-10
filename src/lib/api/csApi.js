@@ -1,5 +1,5 @@
 // history
-import history from '../../history'
+import history from '../history'
 
 // lib
 import $ from 'jquery'
