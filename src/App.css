@@ -38,16 +38,3 @@
   height: 720px;
   overflow: hidden;
 }
-
-.app_version {
-  position: absolute;
-  width: 100%;
-  top: 10px;
-  left: 0;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #f7b550;
-  z-index: 99999;
-  background: #333333;
-}
