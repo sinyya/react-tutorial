@@ -1,5 +1,5 @@
 import React from 'react';
-import homeMainImg from "../../assets/img/homeMain.PNG";
+import homeMainImg from "../../assets/img/homeMain.png";
 import './index.css'
 /**
  * Contents 화면
