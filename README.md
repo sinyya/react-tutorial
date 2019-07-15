@@ -1,68 +1,169 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React 시작하기
+- [React](#react)
+- [Lifecycle](#lifecycle)
+- [React 앱 만들기](#react-앱-만들기)
+    - [Create React App](#create-react-app)
+    - [NODE_ENV 설정](#node_env-설정)
+    - [React Router](#react-router)
+    - [history](#history)
+    - [PUBLIC_URL](#public_url)
+- [React vs Vue](#react-vs-vue)
 
-## Available Scripts
+<br>
+<br>
 
-In the project directory, you can run:
+## React
+[사용자 인터페이스를 만들기 위한 js 라이브러리](https://reactjs.org/)
+- 컴포넌트 기반
+- Virtual DOM 사용
+- [Flux 패턴](http://webframeworks.kr/tutorials/react/flux/)
 
-### `npm start`
+<br>
+<br>
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Lifecycle
+[컴포넌트 생명주기](https://ko.reactjs.org/docs/react-component.html#the-component-lifecycle)   
+컴포넌트가 생성되고 사용되고 소멸될 때까지의 과정을 lifecycle이라 말하고 이 Lifecycle 안에서 특정 시점에 자동으로 호출되는 메서드를 Lifecycle event라고 한다.  
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+![react lifecycle simple](./docs/react_lifecycle_simple.png)
 
-### `npm test`
+More details
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![react lifecycle details](./docs/react_lifecycle.jpg)
 
-### `npm run build`
+<br>
+<br>
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## React 앱 만들기
+[새로운 React 앱 만들기](https://ko.reactjs.org/docs/create-a-new-react-app.html)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Create React App
+```
+$ npx create-react-app react-router-tutorial
+$ cd react-router-tutorial
+$ npm start
+```
 
-### `npm run eject`
+<br/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### NODE_ENV 설정
+[cross-env 환경변수 설정 라이브러리](https://www.npmjs.com/package/cross-env)  
+프로젝트 루트 경로 설정
+```
+$ npm install cross-env --dev
+```
+package.json
+```
+"scripts": {
+    "start": "cross-env NODE_PATH=src react-scripts start",
+    "build": "cross-env NODE_PATH=src react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### React Router
+[React Router](https://reacttraining.com/react-router/web/guides/quick-start)  
+url 주소에 따라 view를 나누기 위해 설치
+```
+$ npm install react-router-dom
+```
+/src/App.js
+```
+import React, { Component } from 'react';
+import { Router, Route, Switch } from 'react-router-dom'
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+// components
+import { Home, HomeMain, Page404} from './routes'
 
-## Learn More
+class App extends Component {
+  render() {
+    return (
+        <Router history={history}>
+          <div className="container">
+            <Switch>
+                <Route path="*" component={Page404} />
+            </Switch>
+          </div>
+        </Router>
+    );
+  }
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export default App;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
 
-### Code Splitting
+<br>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### history 
+[npm history](https://www.npmjs.com/package/history)  
+js에서 history 객체를 컨트롤 하기 위해 추가
+```
+$ npm install history
+```
+/src/lib/history/index.js
+```
+import { createBrowserHistory } from 'history'
 
-### Analyzing the Bundle Size
+export default createBrowserHistory({
+    /* pass a configuration object here if needed */
+    forceRefresh: false // URL을 변경한 상태에서 리로드 여부
+})
+```
+/src/lib/api/csApi.js
+```
+import history from '../history'
+history.push(process.env.PUBLIC_URL+'homeMain')
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+<br/>
 
-### Making a Progressive Web App
+### PUBLIC_URL
+[React PUBLIC_URL](https://facebook.github.io/create-react-app/docs/advanced-configuration)  
+React .env에서 PUBLIC_URL을 지원합. 별도의 설정 하지 않으면 package.json의 homepage url값으로 설정됨.  
+cross-env를 사용하여 PUBLIC_URL 사용가능.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- PUBLIC_URL 설정
 
-### Advanced Configuration
+    package.json
+    ```
+    "scripts": {
+        "start": "cross-env PUBLIC_URL=/alaska_qa_ccu/main// NODE_PATH=src react-scripts start",
+        "build": "cross-env PUBLIC_URL=/alaska_qa_ccu/main// NODE_PATH=src react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+      },
+    ```
+    <br>
+- PUBLIC_URL 사용
+  
+    public/index.html
+    ```
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    ```
+    /src/App.js
+    ```
+    <Router history={history}>
+      <div className="container">
+        <Switch>
+            <Route path={`${process.env.PUBLIC_URL}index.html`} component={Home} />
+            <Route exact path={`${process.env.PUBLIC_URL}homeMain`} component={HomeMain} />
+            <Route path="*" component={Page404} />
+        </Switch>
+      </div>
+    </Router>
+    ```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+<br>
+<br>
 
-### Deployment
+## React vs Vue
+- [React vs. Vue – A Wholesome Comparison](https://programmingwithmosh.com/javascript/react-vs-vue-a-wholesome-comparison/)  
+- [React vs Vue: The Core Differences](https://mentormate.com/blog/react-vs-vue-the-core-differences/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
