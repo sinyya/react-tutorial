@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom'
-import history from './lib/history'
+import history from './utils/history'
 
 // css
 import './App.css';
 
 // components
-import { Home, HomeMain, Page404} from './routes'
-
-// lib
-import csApi from './lib/api/csApi'
+// import { Home, HomeMain, Page404} from './routes'
 
 class App extends Component {
   render() {
@@ -17,18 +14,14 @@ class App extends Component {
         <Router history={history}>
           <div className="container">
             <Switch>
-                <Route path={`${process.env.PUBLIC_URL}index.html`} component={Home} />
-                <Route exact path={`${process.env.PUBLIC_URL}homeMain`} component={HomeMain} />
-                <Route path="*" component={Page404} />
+                {/*<Route path={`${process.env.PUBLIC_URL}index.html`} component={Home} />*/}
+                {/*<Route exact path={`${process.env.PUBLIC_URL}homeMain`} component={HomeMain} />*/}
+                {/*<Route path="*" component={Page404} />*/}
             </Switch>
           </div>
         </Router>
     );
   }
-    componentDidMount(){
-        console.log("componentDidMount");
-        csApi.responseStartApp("onLoad");
-    }
 }
 
 export default App;

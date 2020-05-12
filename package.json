@@ -6,12 +6,10 @@
     "@babel/runtime": "^7.5.4",
     "cross-env": "^5.2.0",
     "history": "^4.9.0",
-    "jquery": "^3.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
-    "x2js": "^3.3.0"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src react-scripts start",
