@@ -2,8 +2,7 @@
 - [React 시작하기](docs/README.md)
 
 ## npm task
-npm start
-```
+```shell script
 ## setup
 $ npm install
 
