@@ -5,18 +5,22 @@ import history from './utils/history';
 // css
 import './App.css';
 
+// router
+import Routes from "./routes";
+
 // components
-import { Home } from "./components/templates/home/Home";
+import Header from "./components/modules/layout/header/Header";
 
 class App extends Component {
   render() {
+      const routeComponents = Routes.map(({path, component}, key) => <Route exact path={ path } component={ component } key={ key } />);
     return (
         <Router history={history}>
           <div className="container">
-            <Switch>
-                <Route path="/" component={ Home } />
-                {/*<Route path="*" component={Page404} />*/}
-            </Switch>
+              <Header />
+              <Switch>
+                  { routeComponents }
+              </Switch>
           </div>
         </Router>
     );

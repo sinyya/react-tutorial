@@ -27,13 +27,26 @@ react-tutorial
 │   └── manifest.json
 └── src
     ├── assets
+    │   └── images
     ├── components
+    │   ├── atoms
+    │   ├── modules
+    │   │   └── layout
+    │   └── templates
     ├── constants
+    │   ├── schemes
+    │   ├── APIs.js
+    │   ├── Dialogs.js
+    │   └── URLs.js
+    ├── features
     ├── lib
-    ├── redux
     ├── routes
     │   └── index.js
+    ├── store
+    │   ├── reducer.js
+    │   └── store.js
     ├── utils
+    │   └── history.js
     ├── App.css
     ├── App.js
     ├── App.test.js

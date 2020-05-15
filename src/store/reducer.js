@@ -2,7 +2,7 @@
  * Root Reducer
  */
 import { combineReducers } from '@reduxjs/toolkit';
-import counterReducer from "../components/modules/counter/counterSlice";
+import counterReducer from "../features/counter/counterSlice";
 
 
 const rootReducer = combineReducers({

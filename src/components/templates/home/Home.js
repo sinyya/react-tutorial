@@ -1,7 +1,7 @@
 import React from 'react';
-import { Counter } from "../../modules/counter/Counter";
+import Counter from "../../modules/counter/Counter";
 
-export function Home() {
+function Home() {
     return (
         <div>
             HOME
@@ -10,3 +10,4 @@ export function Home() {
     )
 }
 
+export default Home;
