@@ -18,8 +18,6 @@ export const counterSlice = createSlice({
   },
 });
 
-console.log(counterSlice);
-
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
