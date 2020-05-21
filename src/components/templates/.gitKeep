@@ -1,0 +1,4 @@
+/**
+ * Atomic Design 5계층을 간단화한 3계층(Atoms, Modules, Templates)에서 3단계 Templates 단계의 컴포넌트가 위치함.
+ * ex. 페이 단위 레벨의 컴포넌트(route 기반)
+ */
