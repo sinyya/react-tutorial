@@ -1,6 +1,5 @@
 /**
- *  react-async 로 요청 상태 관리
- *  공통 로직 정의
+ *  API 공통 규격 정의
  */
 import axios from 'axios';
 
